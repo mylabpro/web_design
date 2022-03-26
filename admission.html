@@ -1,0 +1,110 @@
+<style>
+    body {
+      background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgIBwcHCAgIBwcHBwoHBwcHBw8ICQcKFREWFhURExMYHSggGBolGxMTITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NDg0NDjcZFRkrLS0tLSs3LSsrNysrNysrKystKysrLSsrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAKgBLAMBIgACEQEDEQH/xAAaAAEBAQADAQAAAAAAAAAAAAAAAQIDBAUH/8QAFhABAQEAAAAAAAAAAAAAAAAAAAER/8QAGQEBAQEBAQEAAAAAAAAAAAAAAAECAwQF/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAMAwEAAhEDEQA/APrAqPnPeIqIoioCCoKIoKgACKAiKIqCiIyYoioKgIKIiCgoKIiKAAEUVUVBVZUSNKyaI2jSOyIAioACI0gqCgIKAgACKIIAioKIIKgIKIICoqAAAKAAKACiANDII50UdWERRBABUFAQUBBQERpAQUQRFEVAEEFEERQVBRBBQVEUAAUAAAAAFHOKjo5AACKCoKAgoDIoCCiDI0iKgogyKIIAioKIIiiCCmKqAAgqKoAAiooACu0KOrgiKAgoCI0CsjSAgoCCiCIoiojQgyKMiIpiKguCDIuCCIoqoKgIKCoiiiCoqoFFHcFHVwZGkBBQERoBkXAVBRBBUBBUZBFEVBRkRFEVAEEFRBBRVRFARFBURRVRFRRKFFV3RpHZ5kFBUFARGkQQVBUFARFEEFEVAGRBRBEURUFGREURURQERRREUFRKqVVRFRVShQaegiju8qAIIKgoACAAgAqAIBQQQBlQEQVARQQQKAyCAqlQQAEoolEVSoUVpEVFV6IqOjyoAAioKgAAIqiAKVFqAAMgIIAIiqgMgioigCACAIAolEFKipVVEqpVVEVFV6aKNvIiKgoioqlRagCKgqAVVEAAQZAERVQEBARRAQDUEUBEANRVBEtFW1kRVVESqqogD1QGnkSoAogKogAggqiAqiKCoiiCAIIAioAggDKiAiiaAIaAqagCpUBRKgKqJoKP/9k=");
+      width: 500px;
+      margin: 0 auto;
+      padding: 50px;
+    }
+    
+    div.elem-group {
+      margin: 20px 0;
+    }
+    
+    div.elem-group.inlined {
+      width: 49%;
+      display: inline-block;
+      float: left;
+      margin-left: 1%;
+    }
+    
+    label {
+      display: block;
+      font-family: 'Nanum Gothic';
+      padding-bottom: 10px;
+      font-size: 1.25em;
+    }
+    
+    input, select, textarea {
+      border-radius: 2px;
+      border: 2px solid #777;
+      box-sizing: border-box;
+      font-size: 1.25em;
+      font-family: 'Nanum Gothic';
+      width: 100%;
+      padding: 10px;
+    }
+    
+    div.elem-group.inlined input {
+      width: 95%;
+      display: inline-block;
+    }
+    
+    textarea {
+      height: 250px;
+    }
+    
+    hr {
+      border: 1px dotted #ccc;
+    }
+    
+    button {
+      height: 50px;
+      background: orange;
+      border: none;
+      color: white;
+      font-size: 1.25em;
+      font-family: 'Nanum Gothic';
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      border: 2px solid black;
+    }
+    
+    </style>
+    <body>
+    <center><form action="reservation.php" method="post">
+      <div class="elem-group">
+        <label for="name" style="color:rgb(73, 21, 21);">Your Name</label>
+        <input type="text" id="name" name="visitor_name" placeholder="Name" pattern=[A-Z\sa-z]{3,20} required>
+      </div>
+      <div class="elem-group">
+        <label for="email" style="color:rgb(73, 21, 21);">Your E-mail</label>
+        <input type="email" id="email" name="visitor_email" placeholder="Email" required>
+      </div>
+      <div class="elem-group">
+        <label for="phone" style="color:rgb(73, 21, 21);">Your Phone</label>
+        <input type="tel" id="phone" name="visitor_phone" placeholder="Phone" pattern=(\d{3})-?\s?(\d{3})-?\s?(\d{4}) required>
+      </div>
+      
+    
+      <div class="elem-group inlined">
+        <label for="checkin-date" style="color:rgb(73, 21, 21);">Admission_Date</label>
+        <input type="date" id="checkin-date" name="checkin" required>
+      </div>
+      <div class="elem-group inlined">
+        <label for="checkout-date" style="color:rgb(73, 21, 21);">Joining_Date</label>
+        <input type="date" id="checkout-date" name="checkout" required>
+      </div>
+      <div class="elem-group">
+        <label for="room-selection" style="color:rgb(0, 0, 0);">Select  Preference</label>
+        <select id="room-selection" name="room_preference" required>
+            <option value="">Choose a course</option>
+            <option value="connecting">ECE</option>
+            <option value="adjoining">CSE</option>
+            <option value="adjacent">EEE</option>
+            <option value="adjacent">CSBS</option>
+            <option value="adjacent">ME</option>
+            <option value="adjacent">BT</option>
+        </select>
+      </div>
+    
+      <div class="elem-group">
+        <label for="message" style="color:rgb(73, 21, 21);">Anything Else?</label>
+        <textarea id="message" name="visitor_message" placeholder="Tell us anything else that might be important." required></textarea>
+      </div>
+      <button type="submit">Submit</button>
+    </form></center>
+    
+    </body>
